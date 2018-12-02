@@ -25,9 +25,9 @@ except Exception as e:
 
 
 class StandardResultsSetPagination(PageNumberPagination):
-    page_size = 2
+    page_size = 5
     page_size_query_param = 'page_size'
-    max_page_size = 3
+    max_page_size = 10
 
 
 class BillViewSet(viewsets.ModelViewSet):
@@ -49,7 +49,6 @@ class BillViewSet(viewsets.ModelViewSet):
 class OutputViewSet(viewsets.ModelViewSet):
     queryset = Output.objects.get_queryset()
     serializer_class = OutputSerializers
-    pagination_class = StandardResultsSetPagination
 
     def get_queryset(self):
         icp_id = self.request.query_params.get('icp_id')
