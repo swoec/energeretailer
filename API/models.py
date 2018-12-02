@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+
 # Create your models here.
 class Bill(models.Model):
     icp_id = models.IntegerField()
@@ -14,6 +15,7 @@ class Bill(models.Model):
 
     def __unicode__(self):
         return self.icp_id
+
 
 class Output(models.Model):
     icp_id = models.IntegerField()
