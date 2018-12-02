@@ -124,7 +124,7 @@ class OutputKeyViewSet(viewsets.ModelViewSet):
         startdate = self.request.query_params.get('startdate')
         enddate = self.request.query_params.get('enddate')
         outputlist = []
-        querysets = Bill.objects.filter(read_timestamp__gte=startdate, read_timestamp__lte=enddate)
+        querysets = Bill.objects.filter(read_timestamp__gte=startdate, read_timestamp__lte=enddate).order_by('icp_id')
         for q in querysets:
             output = Output()
             output.icp_id = q.icp_id
